@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smart Learning Hub</title>
+  <style>
+    :root{
+      --bg:#0f1115; --card:#151922; --muted:#9aa4b2; --accent:#22e6cf; --text:#e9eef5;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
+    a{color:inherit;text-decoration:none}
+
+    /* Navbar */
+    nav{
+      position:sticky;top:0;z-index:1000;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:18px clamp(16px,4vw,48px);
+      background:linear-gradient(180deg, rgba(10,12,16,.9), rgba(10,12,16,.65) 70%, transparent);
+      backdrop-filter: blur(8px);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    nav .brand{font-size:clamp(18px,2vw,22px);font-weight:800;letter-spacing:.3px}
+    nav ul{list-style:none;display:flex;gap:clamp(12px,2.5vw,28px);padding:0;margin:0}
+    nav li{opacity:.9}
+    nav li:hover{opacity:1;color:var(--accent)}
+
+    /* Hero */
+    header{
+      min-height:72vh;display:grid;place-items:center;text-align:center;padding:64px 20px;
+      background:
+        radial-gradient(1200px 600px at 10% -10%, #1b2130 0%, transparent 60%),
+        radial-gradient(900px 500px at 90% -10%, #16212a 0%, transparent 60%),
+        url('https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      position:relative;isolation:isolate;
+    }
+    header::after{
+      content:"";position:absolute;inset:0;background:rgba(8,10,14,.6);z-index:0;
+    }
+    .hero-inner{position:relative;z-index:1;max-width:1000px}
+    .hero-title{font-size:clamp(28px,5vw,56px);line-height:1.1;margin:0 0 12px}
+    .hero-sub{font-size:clamp(14px,2.2vw,20px);color:var(--muted);margin:0 0 28px}
+    .btn{
+      display:inline-block;padding:14px 22px;border-radius:14px;border:1px solid rgba(255,255,255,.12);
+      background:linear-gradient(180deg,#1a2331,#0f151f);color:var(--text);font-weight:700;
+      box-shadow:0 10px 30px rgba(34,230,207,.15);transition:.2s;
+    }
+    .btn:hover{transform:translateY(-1px);box-shadow:0 16px 40px rgba(34,230,207,.25);border-color:var(--accent)}
+
+    /* Sections */
+    section{padding:64px clamp(16px,5vw,72px)}
+    .section-title{font-size:clamp(22px,3vw,32px);margin:0 0 22px}
+    .muted{color:var(--muted);margin:0 0 28px}
+
+    /* Cards grid (bigger) */
+    .grid{
+      display:grid;gap:28px;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    }
+    .card{
+      background:linear-gradient(180deg,#141925,#10131b);
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:18px;padding:22px;
+      box-shadow:0 10px 30px rgba(0,0,0,.25);
+      transition:.25s;
+    }
+    .card:hover{transform:translateY(-6px);box-shadow:0 18px 46px rgba(0,0,0,.35)}
+    .card h3{margin:0 0 8px;font-size:22px}
+    .card p{margin:0 0 16px;color:var(--muted);font-size:15px}
+    .actions{display:flex;gap:10px;flex-wrap:wrap}
+    .pill{
+      padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.1);
+      background:#0f141d;color:#fff;font-weight:600;transition:.2s;
+    }
+    .pill:hover{border-color:var(--accent);transform:translateY(-2px)}
+
+    /* Contact */
+    .contact{
+      background:linear-gradient(180deg,#0d121b,#0a0e15);
+      border-top:1px solid rgba(255,255,255,.06);
+      text-align:center;
+    }
+    .contact a{color:var(--accent);font-weight:700}
+
+    /* Footer */
+    footer{padding:22px;text-align:center;color:#8b95a6;border-top:1px solid rgba(255,255,255,.06)}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="brand">MT Argho Learning Academy</div>
+    <ul>
+      <li><a href="mcq.html">QUIZ</a></li>
+      <li><a href="#materials">Materials</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <div class="hero-inner">
+      <h1 class="hero-title">Learn Anytime, Anywhere 📚</h1>
+      <h1 class="">with ARGHO ACADEMY</h1>
+      <p class="hero-sub">Big, clean design • PDF viewer in new page • Easy download</p>
+      <a class="btn" href="#courses">Browse Courses</a>
+    </div>
+  </header>
+
+  <section id="courses">
+    <h2 class="section-title">Our Courses</h2>
+    <p class="muted">Click any course to view its PDF in a new tab and download it.</p>
+    <div class="grid">
+      <article class="card">
+        <h3>Mathematics</h3>
+        <p>Algebra, Geometry, Trigonometry & more.</p>
+        <div class="actions">
+          <button class="pill" onclick="openPdf('pdfs/math.pdf')">View PDF</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>Physics chapter 3 MCQ HSC-2026</h3>
+       
+        <p>Mechanics, Motion, Light, Waves.</p>
+        <div class="actions">
+           <a href="pdf/phy.html"> <button>Read</button></a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>English</h3>
+        <p>Grammar, Vocabulary, Literature.</p>
+        <div class="actions">
+          <button class="pill" onclick="openPdf('pdfs/english.pdf')">View PDF</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="materials">
+    <h2 class="section-title">Study Materials</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>Video Lesson</h3>
+        <p>Watch recorded lecture on Algebra.</p>
+        <div class="actions">
+          <a class="pill" target="_blank" href="https://www.youtube.com/watch?v=2X3N9N_EqFg">Watch Video</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>Assignment</h3>
+        <p>Weekly assignment (PDF).</p>
+        <div class="actions">
+          <button class="pill" onclick="openPdf('pdfs/assignment1.pdf')">View Assignment</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2 class="section-title">Contact</h2>
+    <p class="muted">Have questions or need help?</p>
+    <p>
+      Email: <a href="mailto:youremail@example.com">youremail@example.com</a> •
+      WhatsApp: <a target="_blank" href="https://wa.me/8801000000000">Message Me</a>
+    </p>
+  </section>
+
+  <footer>© 2025 Smart Learning Hub</footer>
+
+  <script>
+    // Opens a NEW PAGE (viewer.html) that shows & downloads your PDF.
+    function openPdf(filePath){
+      const url = 'viewer.html?file=' + encodeURIComponent(filePath);
+      window.open(url, '_blank'); // new tab/page
+    }
+  </script>
+</body>
+</html>

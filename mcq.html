@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ফিজিক্স MCQ Quiz</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Siyam+Rupali&display=swap');
+
+body {
+    margin:0;
+    font-family: 'Siyam Rupali', sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    min-height:100vh;
+    padding:20px;
+    background: linear-gradient(-45deg,#a1c4fd,#c2e9fb,#ff9a9e,#fad0c4);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color:#fff;
+}
+
+@keyframes gradientBG {
+    0% {background-position:0% 50%;}
+    50% {background-position:100% 50%;}
+    100% {background-position:0% 50%;}
+}
+
+.quiz-container{
+    background: rgba(0,0,0,0.85);
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow:0 0 20px rgba(0,0,0,0.5);
+    width:100%;
+    max-width:800px;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:20px;
+    font-size:28px;
+    color:#ffd700;
+}
+
+.question{
+    margin-bottom:15px;
+    font-size:20px;
+}
+
+.progress{
+    text-align:right;
+    margin-bottom:15px;
+    font-weight:bold;
+    font-size:16px;
+}
+
+.options label{
+    display:block;
+    margin-bottom:10px;
+    cursor:pointer;
+    transition:transform 0.2s;
+    padding:10px;
+    border-radius:8px;
+    background:rgba(255,255,255,0.1);
+}
+
+.options label:hover{
+    transform:scale(1.05);
+    background:rgba(255,255,255,0.2);
+}
+
+button{
+    display:block;
+    margin:20px auto 0 auto;
+    padding:10px 25px;
+    font-size:18px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    background:#ff6f91;
+    color:#fff;
+    transition:background 0.3s;
+}
+
+button:hover{background:#ff3c7e;}
+
+.result{
+    text-align:center;
+    margin-top:20px;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.grade{
+    font-size:42px;
+    margin-top:20px;
+    animation:pop 1s ease;
+    color:#ffd700;
+}
+
+@keyframes pop{
+    0%{transform:scale(0);}
+    50%{transform:scale(1.3);}
+    100%{transform:scale(1);}
+}
+</style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <h1>ফিজিক্স MCQ Quiz</h1>
+    <div class="progress" id="progress">1/30</div>
+    <div class="question" id="question"></div>
+    <div class="options" id="options"></div>
+    <button onclick="checkAnswer()">উত্তর দিন</button>
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+const quizData=[
+    {question:"1. পৃথিবীর ত্বরণ কত?", options:["৯.৮ মি/স²","১০ মি/স²","৯.২ মি/স²","৮.৯ মি/স²"], answer:"৯.৮ মি/স²"},
+    {question:"2. শক্তির একক কোনটি?", options:["জুল","নিউটন","ওয়াট","প্যাস্কাল"], answer:"জুল"},
+    {question:"3. ভরকে পরিমাপ করা হয়?", options:["কেজি","মিটার","সেকেন্ড","আম্পিয়ার"], answer:"কেজি"},
+    {question:"4. গতিশক্তি (Kinetic Energy) সূত্র?", options:["1/2 mv²","mgh","F x d","P x t"], answer:"1/2 mv²"},
+    {question:"5. সম্ভাব্য শক্তি (Potential Energy) সূত্র?", options:["mgh","1/2 mv²","F/a","P x t"], answer:"mgh"},
+    {question:"6. নিউটনের প্রথম সূত্র কি?", options:["জড়ত্বের সূত্র","গতি সূত্র","ত্বরণ সূত্র","শক্তি সংরক্ষণ"], answer:"জড়ত্বের সূত্র"},
+    {question:"7. নিউটনের দ্বিতীয় সূত্র?", options:["F=ma","E=mc²","V=d/t","P=mv"], answer:"F=ma"},
+    {question:"8. নিউটনের তৃতীয় সূত্র?", options:["ক্রিয়া=প্রতিক্রিয়া","F=ma","Work=Fd","KE=1/2mv²"], answer:"ক্রিয়া=প্রতিক্রিয়া"},
+    {question:"9. চাপের SI একক?", options:["প্যাস্কাল","নিউটন","জুল","ওয়াট"], answer:"প্যাস্কাল"},
+    {question:"10. ঘনত্বের সূত্র?", options:["ভর/আয়তন","শক্তি/সময়","বেগ x ভর","F/এলাকা"], answer:"ভর/আয়তন"}
+    // আরো প্রশ্ন যোগ করতে হবে 30 পর্যন্ত
+];
+
+let currentQuestion=0;
+let score=0;
+
+function loadQuestion(){
+    const q=quizData[currentQuestion];
+    document.getElementById('question').textContent=q.question;
+    const optionsEl=document.getElementById('options');
+    optionsEl.innerHTML='';
+    document.getElementById('progress').textContent=`${currentQuestion+1}/${quizData.length}`;
+
+    q.options.forEach(option=>{
+        const label=document.createElement('label');
+        label.innerHTML=`<input type="radio" name="option" value="${option}"> ${option}`;
+        optionsEl.appendChild(label);
+    });
+}
+
+function checkAnswer(){
+    const selected=document.querySelector('input[name="option"]:checked');
+    if(!selected){alert("একটি উত্তর নির্বাচন করুন!"); return;}
+    if(selected.value===quizData[currentQuestion].answer){
+        score +=1;
+    }
+    currentQuestion++;
+    if(currentQuestion>=quizData.length){
+        showFinalResult();
+    }else{
+        loadQuestion();
+    }
+}
+
+function showFinalResult(){
+    document.getElementById('question').textContent="কুইজ শেষ!";
+    document.getElementById('options').innerHTML='';
+    document.getElementById('progress').textContent=`ফলাফল`;
+
+    const resultEl=document.getElementById('result');
+    resultEl.innerHTML=`আপনার স্কোর: ${score} / ${quizData.length}`;
+
+    let gradeText="";
+    if(score>=30){gradeText="A+ 🎉";}
+    else if(score>=20){gradeText="A ⭐";}
+    else{gradeText="আপনাকে আরও ভালো করতে হবে 😅";}
+
+    const gradeEl=document.createElement('div');
+    gradeEl.className='grade';
+    gradeEl.textContent=gradeText;
+    resultEl.appendChild(gradeEl);
+}
+
+loadQuestion();
+</script>
+
+</body>
+</html>
