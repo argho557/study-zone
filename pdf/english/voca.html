@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ইংরেজি শব্দভান্ডার ও বাংলা অর্থ (বই থিম)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+        body {
+            font-family: 'Noto Serif Bengali', 'Poppins', sans-serif;
+            background: url('https://images.unsplash.com/photo-1512820790803-83ca734da794?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        h1 {
+            color: #ff6f00;
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            text-shadow: 0 0 5px #ffca28;
+        }
+        .info-section {
+            background: #fff3e0;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 5px solid #ff6f00;
+            box-shadow: 0 0 10px #ffca28;
+        }
+        .vocab {
+            background: #e3f2fd;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 2px solid #0288d1;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .vocab:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 15px #0288d1;
+        }
+        .vocab h2 {
+            color: #0288d1;
+            font-family: 'Poppins', sans-serif;
+            font-size: 2em;
+            margin: 0;
+        }
+        .vocab i {
+            position: absolute;
+            font-size: 2em;
+            color: #ff6f00;
+        }
+        .vocab .left-icon {
+            left: 10px;
+            top: 15px;
+        }
+        .vocab .right-icon {
+            right: 10px;
+            top: 15px;
+        }
+        .meaning, .sentence, .bangla-sentence {
+            margin: 10px 0;
+            font-style: italic;
+            font-size: 1.7em;
+        }
+        .sentence {
+            color: #0288d1;
+            font-size: 1.7em;
+        }
+        .bangla-sentence {
+            color: #221c17;
+            font-size: 1.7em;
+        }
+        .toggle-btn, .quiz-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #ff6f00;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            font-family: 'Poppins', sans-serif;
+            
+        }
+        .toggle-btn:hover, .quiz-btn:hover {
+            background: #d84315;
+            box-shadow: 0 0 10px #ffca28;
+        }
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #0288d1;
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+           
+        }
+        .scroll-top:hover {
+            background: #01579b;
+            box-shadow: 0 0 10px #0288d1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> ইংরেজি শব্দভান্ডার ও বাংলা অর্থ</h1>
+        
+
+        <div class="info-section">
+            <h2>শব্দভান্ডার শেখার গুরুত্ব</h2>
+            <p>ইংরেজি শব্দভান্ডার শেখা ভাষার দক্ষতা বাড়ানোর জন্য অত্যন্ত গুরুত্বপূর্ণ। এ personally পরীক্ষায় ভালো নম্বর পেতে এবং বাস্তব জীবনে যোগাযোগে সহায়তা করে। নতুন শব্দ শেখার মাধ্যমে আপনি আপনার চিন্তাভাবনা আরও স্পষ্টভাবে প্রকাশ করতে পারেন এবং আত্মবিশ্বাস বাড়াতে পারেন।</p>
+            <h3>শব্দ মনে রাখার টিপস</h3>
+            <ul style="text-align: left; margin: 10px 0;">
+                <li>প্রতিদিন ৫-১০টি শব্দ শিখুন এবং বাক্যে ব্যবহার করুন।</li>
+                <li>শব্দের অর্থ মনে রাখতে গল্প বা ছবির সাথে যুক্ত করুন।</li>
+                <li>ফ্ল্যাশকার্ড ব্যবহার করুন এবং নিয়মিত রিভিশন দিন।</li>
+                <li>ইংরেজি বই, গান বা মুভি দেখে শব্দের ব্যবহার শিখুন।</li>
+            </ul><br>
+        </div>
+
+        <div id="vocab">
+            <div class="vocab">
+                <i class="fas fa-book-open left-icon"></i>
+                <h2>1. Abundant</h2>
+                <p class="meaning">বাংলা অর্থ: প্রচুর</p>
+                <p class="sentence">বাক্য: The forest is abundant with diverse wildlife.</p>
+                <p class="bangla-sentence">বাংলা: জঙ্গলে বিভিন্ন ধরনের প্রাণী প্রচুর পরিমাণে রয়েছে।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+
+            <div class="vocab">
+                <i class="fas fa-lightbulb left-icon"></i>
+                <h2>2. Benevolent</h2>
+                <p class="meaning">বাংলা অর্থ: দয়ালু</p>
+                <p class="sentence">বাক্য: The benevolent king helped the poor villagers.</p>
+                <p class="bangla-sentence">বাংলা: দয়ালু রাজা গরিব গ্রামবাসীদের সাহায্য করেছিলেন।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+
+            <div class="vocab">
+                <i class="fas fa-cloud left-icon"></i>
+                <h2>3. Chaotic</h2>
+                <p class="meaning">বাংলা অর্থ: বিশৃঙ্খল</p>
+                <p class="sentence">বাক্য: The market was chaotic during the festival.</p>
+                <p class="bangla-sentence">বাংলা: উৎসবের সময় বাজারটি বিশৃঙ্খল ছিল।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+
+            <div class="vocab">
+                <i class="fas fa-star left-icon"></i>
+                <h2>4. Diligent</h2>
+                <p class="meaning">বাংলা অর্থ: পরিশ্রমী</p>
+                <p class="sentence">বাক্য: She is a diligent student who always completes her tasks.</p>
+                <p class="bangla-sentence">বাংলা: সে একজন পরিশ্রমী ছাত্রী যে সবসময় তার কাজ সম্পন্ন করে।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+
+            <div class="vocab">
+                <i class="fas fa-leaf left-icon"></i>
+                <h2>5. Exquisite</h2>
+                <p class="meaning">বাংলা অর্থ: সূক্ষ্ম</p>
+                <p class="sentence">বাক্য: The artist created an exquisite painting.</p>
+                <p class="bangla-sentence">বাংলা: শিল্পী একটি সূক্ষ্ম চিত্রকর্ম তৈরি করেছেন।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+
+            <div class="vocab">
+                <i class="fas fa-fire left-icon"></i>
+                <h2>6. Ferocious</h2>
+                <p class="meaning">বাংলা অর্থ: উগ্র</p>
+                <p class="sentence">বাক্য: The ferocious tiger scared the villagers.</p>
+                <p class="bangla-sentence">বাংলা: উগ্র বাঘটি গ্রামবাসীদের ভয় পাইয়ে দিয়েছিল।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+
+            <div class="vocab">
+                <i class="fas fa-heart left-icon"></i>
+                <h2>7. Generous</h2>
+                <p class="meaning">বাংলা অর্থ: উদার</p>
+                <p class="sentence">বাক্য: He is generous and always helps others.</p>
+                <p class="bangla-sentence">বাংলা: সে উদার এবং সবসময় অন্যদের সাহায্য করে।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+
+            <div class="vocab">
+                <i class="fas fa-mountain left-icon"></i>
+                <h2>8. Harmonious</h2>
+                <p class="meaning">বাংলা অর্থ: সুরেলা</p>
+                <p class="sentence">বাক্য: The choir sang in a harmonious melody.</p>
+                <p class="bangla-sentence">বাংলা: গায়কদল একটি সুরেলা সুরে গান গেয়েছিল।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+
+            <div class="vocab">
+                <i class="fas fa-eye left-icon"></i>
+                <h2>9. Immaculate</h2>
+                <p class="meaning">বাংলা অর্থ: নিখুঁত</p>
+                <p class="sentence">বাক্য: Her dress was immaculate for the occasion.</p>
+                <p class="bangla-sentence">বাংলা: তার পোশাক অনুষ্ঠানের জন্য নিখুঁত ছিল।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+
+            <div class="vocab">
+                <i class="fas fa-gem left-icon"></i>
+                <h2>10. Jubilant</h2>
+                <p class="meaning">বাংলা অর্থ: আনন্দিত</p>
+                <p class="sentence">বাক্য: The team was jubilant after winning the match.</p>
+                <p class="bangla-sentence">বাংলা: ম্যাচ জয়ের পর দলটি আনন্দিত ছিল।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+
+            <div class="vocab">
+                <i class="fas fa-balance-scale left-icon"></i>
+                <h2>11. Kindle</h2>
+                <p class="meaning">বাংলা অর্থ: প্রজ্বলিত করা</p>
+                <p class="sentence">বাক্য: She tried to kindle the fire with dry wood.</p>
+                <p class="bangla-sentence">বাংলা: সে শুকনো কাঠ দিয়ে আগুন প্রজ্বলিত করার চেষ্টা করেছিল।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+
+            <div class="vocab">
+                <i class="fas fa-moon left-icon"></i>
+                <h2>12. Luminous</h2>
+                <p class="meaning">বাংলা অর্থ: উজ্জ্বল</p>
+                <p class="sentence">বাক্য: The luminous stars lit up the night sky.</p>
+                <p class="bangla-sentence">বাংলা: উজ্জ্বল তারাগুলো রাতের আকাশকে আলোকিত করেছিল।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+
+            <div class="vocab">
+                <i class="fas fa-tree left-icon"></i>
+                <h2>13. Majestic</h2>
+                <p class="meaning">বাংলা অর্থ: মহিমান্বিত</p>
+                <p class="sentence">বাক্য: The majestic mountains stood tall against the sky.</p>
+                <p class="bangla-sentence">বাংলা: মহিমান্বিত পাহাড়গুলো আকাশের বিপরীতে উঁচু হয়ে দাঁড়িয়েছিল।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+
+            <div class="vocab">
+                <i class="fas fa-water left-icon"></i>
+                <h2>14. Navigate</h2>
+                <p class="meaning">বাংলা অর্থ: নৌযান চালানো</p>
+                <p class="sentence">বাক্য: The sailor learned to navigate through stormy seas.</p>
+                <p class="bangla-sentence">বাংলা: নাবিক ঝড়ো সমুদ্রের মধ্য দিয়ে নৌযান চালানো শিখেছিল।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+
+            <div class="vocab">
+                <i class="fas fa-clock left-icon"></i>
+                <h2>15. Obsolete</h2>
+                <p class="meaning">বাংলা অর্থ: অপ্রচলিত</p>
+                <p class="sentence">বাক্য: Typewriters have become obsolete in modern offices.</p>
+                <p class="bangla-sentence">বাংলা: আধুনিক অফিসে টাইপরাইটার অপ্রচলিত হয়ে গেছে।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+
+            <div class="vocab">
+                <i class="fas fa-rocket left-icon"></i>
+                <h2>16. Prosperous</h2>
+                <p class="meaning">বাংলা অর্থ: সমৃদ্ধ</p>
+                <p class="sentence">বাক্য: The prosperous city attracted many tourists.</p>
+                <p class="bangla-sentence">বাংলা: সমৃদ্ধ শহরটি অনেক পর্যটককে আকর্ষণ করেছিল।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+
+            <div class="vocab">
+                <i class="fas fa-shield-alt left-icon"></i>
+                <h2>17. Resilient</h2>
+                <p class="meaning">বাংলা অর্থ: স্থিতিস্থাপক</p>
+                <p class="sentence">বাক্য: She is resilient and bounces back from challenges.</p>
+                <p class="bangla-sentence">বাংলা: সে স্থিতিস্থাপক এবং চ্যালেঞ্জ থেকে ফিরে আসে।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+
+            <div class="vocab">
+                <i class="fas fa-sun left-icon"></i>
+                <h2>18. Serene</h2>
+                <p class="meaning">বাংলা অর্থ: শান্ত</p>
+                <p class="sentence">বাক্য: The serene lake reflected the clear sky.</p>
+                <p class="bangla-sentence">বাংলা: শান্ত হ্রদটি পরিষ্কার আকাশের প্রতিফলন করেছিল।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+
+            <div class="vocab">
+                <i class="fas fa-puzzle-piece left-icon"></i>
+                <h2>19. Tenacious</h2>
+                <p class="meaning">বাংলা অর্থ: দৃঢ়</p>
+                <p class="sentence">বাক্য: His tenacious spirit helped him achieve his goals.</p>
+                <p class="bangla-sentence">বাংলা: তার দৃঢ় মনোভাব তাকে তা লক্ষ্য অর্জনে সাহায্য করেছিল।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+
+            <div class="vocab">
+                <i class="fas fa-globe left-icon"></i>
+                <h2>20. Vibrant</h2>
+                <p class="meaning">বাংলা অর্থ: প্রাণবন্ত</p>
+                <p class="sentence">বাক্য: The vibrant festival filled the town with joy.</p>
+                <p class="bangla-sentence">বাংলা: প্রাণবন্ত উৎসবটি শহরটিকে আনন্দে ভরিয়ে দিয়েছিল।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+            <div class="vocab">
+                <i class="fas fa-seedling left-icon"></i>
+                <h2>21. Amicable</h2>
+                <p class="meaning">বাংলা অর্থ: বন্ধুত্বপূর্ণ</p>
+                <p class="sentence">বাক্য: They resolved their issues in an amicable manner.</p>
+                <p class="bangla-sentence">বাংলা: তারা বন্ধুত্বপূর্ণভাবে তাদের সমস্যাগুলো সমাধান করেছে।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+
+            <div class="vocab">
+                <i class="fas fa-trophy left-icon"></i>
+                <h2>22. Astute</h2>
+                <p class="meaning">বাংলা অর্থ: তীক্ষ্ণবুদ্ধিসম্পন্ন</p>
+                <p class="sentence">বাক্য: His astute decision saved the company from loss.</p>
+                <p class="bangla-sentence">বাংলা: তার তীক্ষ্ণবুদ্ধিসম্পন্ন সিদ্ধান্ত কোম্পানিকে ক্ষতি থেকে রক্ষা করেছে।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+
+            <div class="vocab">
+                <i class="fas fa-compass left-icon"></i>
+                <h2>23. Buoyant</h2>
+                <p class="meaning">বাংলা অর্থ: প্রফুল্ল</p>
+                <p class="sentence">বাক্য: Her buoyant personality cheered everyone up.</p>
+                <p class="bangla-sentence">বাংলা: তার প্রফুল্ল ব্যক্তিত্ব সবাইকে উৎসাহিত করেছিল।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+
+            <div class="vocab">
+                <i class="fas fa-bolt left-icon"></i>
+                <h2>24. Candid</h2>
+                <p class="meaning">বাংলা অর্থ: স্পষ্টবক্তা</p>
+                <p class="sentence">বাক্য: His candid opinion was appreciated by the team.</p>
+                <p class="bangla-sentence">বাংলা: তার স্পষ্টবক্তা মতামত দলের দ্বারা প্রশংসিত হয়েছিল।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+
+            <div class="vocab">
+                <i class="fas fa-graduation-cap left-icon"></i>
+                <h2>25. Erudite</h2>
+                <p class="meaning">বাংলা অর্থ: পণ্ডিত</p>
+                <p class="sentence">বাক্য: The erudite professor delivered an insightful lecture.</p>
+                <p class="bangla-sentence">বাংলা: পণ্ডিত অধ্যাপক একটি গভীর প্রত্যয়ী বক্তৃতা দিয়েছিলেন।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+
+            <div class="vocab">
+                <i class="fas fa-handshake left-icon"></i>
+                <h2>26. Formidable</h2>
+                <p class="meaning">বাংলা অর্থ: ভয়ঙ্কর</p>
+                <p class="sentence">বাক্য: The team faced a formidable opponent in the final.</p>
+                <p class="bangla-sentence">বাংলা: দলটি ফাইনালে একটি ভয়ঙ্কর প্রতিপক্ষের মুখোমুখি হয়েছিল।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+
+            <div class="vocab">
+                <i class="fas fa-bell left-icon"></i>
+                <h2>27. Gregarious</h2>
+                <p class="meaning">বাংলা অর্থ: মিশুক</p>
+                <p class="sentence">বাক্য: She is gregarious and enjoys social gatherings.</p>
+                <p class="bangla-sentence">বাংলা: সে মিশুক এবং সামাজিক সমাবেশ উপভোগ করে।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+
+            <div class="vocab">
+                <i class="fas fa-hourglass left-icon"></i>
+                <h2>28. Hinder</h2>
+                <p class="meaning">বাংলা অর্থ: বাধা দেওয়া</p>
+                <p class="sentence">বাক্য: Bad weather can hinder travel plans.</p>
+                <p class="bangla-sentence">বাংলা: খারাপ আবহাওয়া ভ্রমণ পরিকল্পনায় বাধা দিতে পারে।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+
+            <div class="vocab">
+                <i class="fas fa-lightbulb left-icon"></i>
+                <h2>29. Ingenious</h2>
+                <p class="meaning">বাংলা অর্থ: উদ্ভাবনী</p>
+                <p class="sentence">বাক্য: The engineer designed an ingenious solution to the problem.</p>
+                <p class="bangla-sentence">বাংলা: প্রকৌশলী সমস্যার জন্য একটি উদ্ভাবনী সমাধান ডিজাইন করেছেন।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+
+            <div class="vocab">
+                <i class="fas fa-anchor left-icon"></i>
+                <h2>30. Meticulous</h2>
+                <p class="meaning">বাংলা অর্থ: যত্নশীল</p>
+                <p class="sentence">বাক্য: She is meticulous in her work and never misses details.</p>
+                <p class="bangla-sentence">বাংলা: সে তার কাজে যত্নশীল এবং কখনো বিস্তারিত মিস করে না।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+
+            <div class="vocab">
+                <i class="fas fa-cloud-sun left-icon"></i>
+                <h2>31. Nostalgic</h2>
+                <p class="meaning">বাংলা অর্থ: স্মৃতিকাতর</p>
+                <p class="sentence">বাক্য: The old song made her feel nostalgic about her childhood.</p>
+                <p class="bangla-sentence">বাংলা: পুরানো গানটি তাকে তার শৈশব সম্পর্কে স্মৃতিকাতর করে তুলেছিল।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+
+            <div class="vocab">
+                <i class="fas fa-star left-icon"></i>
+                <h2>32. Optimistic</h2>
+                <p class="meaning">বাংলা অর্থ: আশাবাদী</p>
+                <p class="sentence">বাক্য: He remains optimistic despite the challenges.</p>
+                <p class="bangla-sentence">বাংলা: তিনি চ্যালেঞ্জ সত্ত্বেও আশাবাদী থাকেন।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+
+            <div class="vocab">
+                <i class="fas fa-book left-icon"></i>
+                <h2>33. Prudent</h2>
+                <p class="meaning">বাংলা অর্থ: বিচক্ষণ</p>
+                <p class="sentence">বাক্য: It was prudent to save money for future needs.</p>
+                <p class="bangla-sentence">বাংলা: ভবিষ্যতের প্রয়োজনের জন্য টাকা সঞ্চয় করা বিচক্ষণ ছিল।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+
+            <div class="vocab">
+                <i class="fas fa-leaf left-icon"></i>
+                <h2>34. Radiant</h2>
+                <p class="meaning">বাংলা অর্থ: দীপ্তিময়</p>
+                <p class="sentence">বাক্য: Her radiant smile lit up the room.</p>
+                <p class="bangla-sentence">বাংলা: তার দীপ্তিময় হাসি ঘরটিকে আলোকিত করেছিল।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+
+            <div class="vocab">
+                <i class="fas fa-hand-holding-heart left-icon"></i>
+                <h2>35. Sincere</h2>
+                <p class="meaning">বাংলা অর্থ: আন্তরিক</p>
+                <p class="sentence">বাক্য: His sincere apology was accepted by all.</p>
+                <p class="bangla-sentence">বাংলা: তার আন্তরিক ক্ষমাপ্রার্থনা সবাই গ্রহণ করেছিল।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+
+            <div class="vocab">
+                <i class="fas fa-mountain left-icon"></i>
+                <h2>36. Tranquil</h2>
+                <p class="meaning">বাংলা অর্থ: শান্তিপূর্ণ</p>
+                <p class="sentence">বাক্য: The tranquil village was a perfect retreat.</p>
+                <p class="bangla-sentence">বাংলা: শান্তিপূর্ণ গ্রামটি ছিল একটি নিখুঁত আশ্রয়।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+
+            <div class="vocab">
+                <i class="fas fa-rocket left-icon"></i>
+                <h2>37. Versatile</h2>
+                <p class="meaning">বাংলা অর্থ: বহুমুখী</p>
+                <p class="sentence">বাক্য: She is a versatile artist who excels in multiple fields.</p>
+                <p class="bangla-sentence">বাংলা: তিনি একজন বহুমুখী শিল্পী যিনি একাধিক ক্ষেত্রে পারদর্শী।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+
+            <div class="vocab">
+                <i class="fas fa-eye left-icon"></i>
+                <h2>38. Vivid</h2>
+                <p class="meaning">বাংলা অর্থ: জীবন্ত</p>
+                <p class="sentence">বাক্য: The vivid colors of the painting caught everyone’s attention.</p>
+                <p class="bangla-sentence">বাংলা: চিত্রকর্মের জীবন্ত রঙগুলো সবার দৃষ্টি আকর্ষণ করেছিল।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+
+            <div class="vocab">
+                <i class="fas fa-gem left-icon"></i>
+                <h2>39. Zealous</h2>
+                <p class="meaning">বাংলা অর্থ: উৎসাহী</p>
+                <p class="sentence">বাক্য: The zealous volunteer worked tirelessly for the cause.</p>
+                <p class="bangla-sentence">বাংলা: উৎসাহী স্বেচ্ছাসেবী কারণের জন্য অক্লান্ত পরিশ্রম করেছিলেন।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+
+            <div class="vocab">
+                <i class="fas fa-globe left-icon"></i>
+                <h2>40. Zenith</h2>
+                <p class="meaning">বাংলা অর্থ: শীর্ষ</p>
+                <p class="sentence">বাক্য: His career reached its zenith after years of hard work.</p>
+                <p class="bangla-sentence">বাংলা: বছরের পর বছর কঠোর পরিশ্রমের পর তার কর্মজীবন শীর্ষে পৌঁছেছিল।</p><br>
+                <i class="fas fa-check-circle right-icon"></i>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </div>
+
+    <div class="scroll-top" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    
+</body>
+</html>
